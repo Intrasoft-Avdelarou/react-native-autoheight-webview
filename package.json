@@ -1,0 +1,98 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-autoheight-webview@^0.3.1",
+        "scope": null,
+        "escapedName": "react-native-autoheight-webview",
+        "name": "react-native-autoheight-webview",
+        "rawSpec": "^0.3.1",
+        "spec": ">=0.3.1 <0.4.0",
+        "type": "range"
+      },
+      "C:\\Users\\kavdelarou\\Documents\\mynet-mobile\\mynet"
+    ]
+  ],
+  "_from": "react-native-autoheight-webview@>=0.3.1 <0.4.0",
+  "_id": "react-native-autoheight-webview@0.3.4",
+  "_inCache": true,
+  "_location": "/react-native-autoheight-webview",
+  "_nodeVersion": "8.4.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-native-autoheight-webview-0.3.4.tgz_1506322515761_0.1080794872250408"
+  },
+  "_npmUser": {
+    "name": "iou90",
+    "email": "iou90@outlook.com"
+  },
+  "_npmVersion": "5.3.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-autoheight-webview@^0.3.1",
+    "scope": null,
+    "escapedName": "react-native-autoheight-webview",
+    "name": "react-native-autoheight-webview",
+    "rawSpec": "^0.3.1",
+    "spec": ">=0.3.1 <0.4.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-autoheight-webview/-/react-native-autoheight-webview-0.3.4.tgz",
+  "_shasum": "940078e9fe44e3665a5d20b3b873ccd24ab5de88",
+  "_shrinkwrap": null,
+  "_spec": "react-native-autoheight-webview@^0.3.1",
+  "_where": "C:\\Users\\kavdelarou\\Documents\\mynet-mobile\\mynet",
+  "author": {
+    "name": "iou90"
+  },
+  "bugs": {
+    "url": "https://github.com/iou90/react-native-autoheight-webview/issues"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "prop-types": "^15.5.10"
+  },
+  "description": "An auto height webview for React Native",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-chstGElDPRx1XIUOV4yMUTpyYyaXzWRtJi9F6Zl/FStpMWgWgbKBSVgqvycVSxHLbTGUQoCxEoDaUesPb14fNg==",
+    "shasum": "940078e9fe44e3665a5d20b3b873ccd24ab5de88",
+    "tarball": "https://registry.npmjs.org/react-native-autoheight-webview/-/react-native-autoheight-webview-0.3.4.tgz"
+  },
+  "files": [
+    "android/",
+    "autoHeightWebView/"
+  ],
+  "gitHead": "2449cc93a26129c102119831018beb318443bdc4",
+  "homepage": "https://github.com/iou90/react-native-autoheight-webview#readme",
+  "keywords": [
+    "react",
+    "native",
+    "autoheight",
+    "webview"
+  ],
+  "license": "ISC",
+  "main": "autoHeightWebView",
+  "maintainers": [
+    {
+      "name": "iou90",
+      "email": "iou90@outlook.com"
+    }
+  ],
+  "name": "react-native-autoheight-webview",
+  "optionalDependencies": {},
+  "readme": "# react-native-autoheight-webview\nAn auto height webview for React Native.\n\nCause of removing unused createJSModules calls in React Naitve 0.47 (https://github.com/facebook/react-native/releases/tag/v0.47.2), please install react-native-autoheight-webview 0.3.1 for the project with 0.44 <= rn < 0.47.\n\nCause of moving View.propTypes to ViewPropTypes in React Naitve 0.44 (https://github.com/facebook/react-native/releases/tag/v0.44.3) and PropTypes has been moved to a separate package in React 16 (https://facebook.github.io/react/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes), please install react-native-autoheight-webview 0.2.3 for the project with rn < 0.44.\n\n`npm install react-native-autoheight-webview --save` (rn >= 0.47)\n\n`npm install react-native-autoheight-webview@0.3.1 --save` (0.44 <= rn < 0.47)\n\n`npm install react-native-autoheight-webview@0.2.3 --save` (rn < 0.44)\n\n## android\n`react-native link react-native-autoheight-webview`\n\n## showcase\n![react-native-autoheight-webview ios](https://media.giphy.com/media/l4FGyhnvWfUgxCfe0/200w.gif)&nbsp;\n![react-native-autoheight-webview android](https://media.giphy.com/media/xUPGcIO0a1ggESelfq/200w.gif)\n\n# usage\n\n```javascript\n<AutoHeightWebView\n    onHeightUpdated={height => console.log(height)},\n    // if page contains iframe on iOS, use a specific script for it\n    hasIframe={true}\n    /*\n    if set to false may cause some layout issues (width of container not fit for screen) on android\n    if set to true may cause some layout issues (smaller font size) on ios\n    */\n    scalesPageToFit={Platform.OS === 'android' ? true : false}\n    // baseUrl not work in android 4.3 or below version\n    enableBaseUrl={true}\n    // offset of rn webview margin \n    heightOffset={5}\n    // default width is the width of screen\n    // to fix that it can not select text when the length of it is not long enough on iOS, the width should be reduced more than 15\n    style={{ width: Dimensions.get('window').width - 15 }}\n    // enable animation by default\n    enableAnimation={true},\n    // only works on enable animation\n    animationDuration={255},\n    // or uri\n    source={{ html: `<p style=\"font-weight: 400;font-style: normal;font-size: 21px;line-height: 1.58;letter-spacing: -.003em;\">Tags are great for describing the essence of your story in a single word or phrase, but stories are rarely about a single thing. <span style=\"background-color: transparent !important;background-image: linear-gradient(to bottom, rgba(146, 249, 190, 1), rgba(146, 249, 190, 1));\">If I pen a story about moving across the country to start a new job in a car with my husband, two cats, a dog, and a tarantula, I wouldn’t only tag the piece with “moving”. I’d also use the tags “pets”, “marriage”, “career change”, and “travel tips”.</span></p>` }}\n    // use local or remote files\n    files={[{\n        href: 'cssfileaddress',\n        type: 'text/css',\n        rel: 'stylesheet'\n    }]}\n    // change script (have to change source to reload on android)\n    customScript={`document.body.style.background = 'lightyellow';`} />\n```\n\n# demo\n\nThere could have some issues when installing & running the demo, related to https://github.com/facebook/react-native/issues/14209, you should try to delete the demo folder in node_modules/react-native-autoheight-webview of the demo project and npm start -- --reset-cache or restart your machine.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iou90/react-native-autoheight-webview.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.3.4"
+}
